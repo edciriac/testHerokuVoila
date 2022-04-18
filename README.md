@@ -1,54 +1,42 @@
-# Voila application deployed on Heroku
+# Exploración de datos mundiales de COVID-19 
 
-This is an example of Voila deployed on Heroku, try it out: https://voila-heroku-demo.herokuapp.com
+**Problema**
 
-## How to deploy your own?
+En la carpeta `data` de este repositorio encontrará tres archivos csv con los registros mundiales de casos de COVID-19 entre el 22 de Enero de 2020 y el 10 de Abril de 2022. Los archivos en cuestión son
 
-1. First, create an Heroku account (free account is fine for testing)
+- `covid19_confirmados.csv` : Número de casos diarios acumulado reportados como COVID-19 positivos (confirmados)
+- `covid19_recuperados.csv` : Número de casos diarios acumulado reportados como recuperados 
+- `covid19_muerte.csv` : Número de decesos diarios por COVID-19 acumulado 
+- `poblacion_mundial2020.csv`:  Población por país más otros indicadores socioeconómicos al 2020 descargados desde: https://www.kaggle.com/tanuprabhu/population-by-country-2020
 
-2. Install Heroku on your machine: https://devcenter.heroku.com/articles/getting-started-with-python#set-up
+En los primeros tres archivos cada fila corresponde a un país o un estado/provincia de un país. Las columnas son las coordenadas geográficas (latitud y longitud) y el número de casos diarios para cada día desde Enero de 2020 a la fecha. 
 
-2. Clone this repository, or create your own repository that follows the same structure:
+En esta tarea se pide que procese, visualice, analice estos datos. Escriba las rutinas de Python necesarias para resolver las actividades específicas que encontrará en `enunciado.ipynb` usando las librerías vistas en el curso. Discuta con sus compañeros de grupo y complete con su análisis donde corresponda.
 
-```bash
-git clone https://github.com/voila-dashboards/voila-heroku
-cd voila-heroku
-```
+**Ejemplo**
 
-3. Create your Notebook and put it in the `notebooks` directory
+A continuación se muestra una gráfica de la series de tiempo del número de casos confirmados acumulados de Chile, Argentina y Bolivia 
 
-5. Add the dependencies needed for running your Notebook in the `requirements.txt` file
+![casosacumulados](images/ejemplo1.png)
 
-6. Edit the `Procfile` file by replacing `notebooks/bqplot.ipynb` by the path to your awesome Notebook and `--template=material` to the template you use
+A partir de esta información se puede calcular la serie de tiempo de los casos confirmados "nuevos" por día
 
-7. Commit everything
+![casosdiarios](images/ejemplo2.png)
 
-```bash
-git commit -m "My awesome app on Heroku!"
-```
+**Referencias**
 
-8. Create the Heroku app:
+Los datos a utilizar en esta tarea fueron recopilados por investigadores del [Center for Systems Science and Engineering (CSSE) de la Universidad John Hopkins](https://github.com/CSSEGISandData/COVID-19). En el repositorio original puede investigar sobre las fuentes consultadas por el CSSE.
 
-```bash
-heroku create
-```
+Nota: Según el CSSE, la información de casos recuperados debe analizarse con cautela pues podría estar considerablemente subestimada. 
 
-9. Now deploy your code:
 
-```bash
-git push heroku master
-```
+## Instrucciones generales
 
-10. That's it! Easy right? Now you can open your app using:
+- Lean cuidadosamente `enunciado.ipynb` y completen donde corresponda
+- Sus resultados se evaluarán en base al último *commit* de la rama *main* antes de la fecha y hora de entrega
+- Haga *commits* con sus avances regularmente. Se evaluará su progreso en base al histórico de *commits*
+- Se trabajará en grupos de máximo cuatro estudiantes. No está permitido compartir código ni discutir con otros grupos. Se espera que sigan el [código de ética de la ACM](https://www.acm.org/code-of-ethics)
+- Para consultas utilice los canales de discord del curso. No se aceptarán consultas asociadas a errores en el código si su repositorio no está actualizado
 
-```bash
 
-heroku open
-```
-
-Note that this last command is only a handy shortcut for opening your browser following the right url, you can also do that manually.
-
-## Extra steps
-
-- You can rename your application on the Heroku website, in the applicaion settings. If you rename it, don't forget to update the remote repository doing `git remote remove heroku && git remote add heroku https://git.heroku.com/your-application-name.git`
-- You can add/remove/update voila command line arguments in the `Procfile` file, _e.g._ you can use the dark theme by adding `--theme=dark`
+# Tarea1_CCCP
